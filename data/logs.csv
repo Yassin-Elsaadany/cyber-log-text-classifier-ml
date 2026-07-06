@@ -1,0 +1,75 @@
+message,label
+"GET /index.html HTTP/1.1 200 from 192.168.1.10",BENIGN
+"User yassin logged in successfully from 10.0.0.5",BENIGN
+"GET /assets/main.css HTTP/1.1 304",BENIGN
+"POST /cart/add product_id=12 quantity=1 status=200",BENIGN
+"Health check passed for api service status=ok",BENIGN
+"Database backup completed successfully at 02:00",BENIGN
+"GET /products?page=2 category=rackets status=200",BENIGN
+"User updated profile settings successfully",BENIGN
+"GET /login?id=1 union select username,password from users--",SQL_INJECTION
+"POST /search q=' OR '1'='1 status=blocked",SQL_INJECTION
+"GET /item?id=5; DROP TABLE users;--",SQL_INJECTION
+"GET /api/order?id=10 UNION SELECT credit_card FROM payments",SQL_INJECTION
+"SQL error near select caused by input 1' or 1=1--",SQL_INJECTION
+"WAF blocked request pattern union all select null,null",SQL_INJECTION
+"Suspicious parameter detected: admin'-- in login form",SQL_INJECTION
+"GET /news?q=<script>alert(1)</script>",XSS
+"Blocked javascript:alert(document.cookie) in comment field",XSS
+"POST /profile bio=<img src=x onerror=alert(1)>",XSS
+"Reflected payload detected %3Cscript%3Ealert(1)%3C/script%3E",XSS
+"WAF blocked event handler onerror=fetch('/cookie')",XSS
+"User input contains <svg onload=alert(1)>",XSS
+"XSS attempt in search field with script tag",XSS
+"Failed password attempt for admin from 45.12.10.2",BRUTE_FORCE
+"Multiple login failures for root within 60 seconds",BRUTE_FORCE
+"Account lockout triggered after 10 failed logins",BRUTE_FORCE
+"SSH failed password for invalid user test from 185.14.2.9",BRUTE_FORCE
+"Login failure burst detected username admin count=25",BRUTE_FORCE
+"RDP authentication failed repeatedly from 103.20.1.5",BRUTE_FORCE
+"Brute force pattern: repeated POST /login status=401",BRUTE_FORCE
+"Nmap scan detected from 172.16.10.55 ports 22,80,443,3306",PORT_SCAN
+"SYN packets sent to sequential ports from same source",PORT_SCAN
+"Port sweep detected across 192.168.1.0/24",PORT_SCAN
+"Connection attempts to closed ports 21 22 23 25 80 445",PORT_SCAN
+"IDS alert: TCP scan behavior high port entropy",PORT_SCAN
+"Masscan user-agent detected in HTTP request",PORT_SCAN
+"Firewall logs show repeated denied ports from 10.10.10.8",PORT_SCAN
+"GET /../../../../etc/passwd HTTP/1.1",PATH_TRAVERSAL
+"Blocked path traversal pattern ..%2f..%2fwindows%2fwin.ini",PATH_TRAVERSAL
+"Request attempted access to /var/log/auth.log using ../",PATH_TRAVERSAL
+"Directory traversal detected in file parameter filename=../../../boot.ini",PATH_TRAVERSAL
+"WAF denied request containing encoded dot dot slash",PATH_TRAVERSAL
+"GET /download?file=../../app.py status=403",PATH_TRAVERSAL
+"Suspicious path requested /etc/shadow from web client",PATH_TRAVERSAL
+"Endpoint downloaded executable payload evil.exe hash matched IOC",MALWARE_INDICATOR
+"Antivirus alert: trojan signature found in temp directory",MALWARE_INDICATOR
+"Process powershell launched encoded command with network callback",MALWARE_INDICATOR
+"Suspicious outbound connection to known C2 domain detected",MALWARE_INDICATOR
+"Malware beacon pattern every 30 seconds from host pc-04",MALWARE_INDICATOR
+"File created in startup folder with random name a8d2.exe",MALWARE_INDICATOR
+"EDR blocked credential dumping tool behavior",MALWARE_INDICATOR
+"Invalid CSRF token for POST /checkout",AUTH_ERROR
+"Session expired user redirected to login",AUTH_ERROR
+"OAuth callback failed state mismatch",AUTH_ERROR
+"JWT token validation failed signature mismatch",AUTH_ERROR
+"Unauthorized access attempt to admin dashboard status=403",AUTH_ERROR
+"User permission denied for order resource status=403",AUTH_ERROR
+"Cookie missing Secure flag detected during security test",AUTH_ERROR
+"GET /favicon.ico HTTP/1.1 200",BENIGN
+"User logout completed successfully",BENIGN
+"POST /contact message submitted status=200",BENIGN
+"GET /?id=2 UNION SELECT password FROM users",SQL_INJECTION
+"Input contains select concat(username,password) from accounts",SQL_INJECTION
+"GET /search?q=%3Cimg%20src=x%20onerror=alert(1)%3E",XSS
+"Blocked stored comment containing script open tag",XSS
+"Login failed for user guest from 80.50.1.4 attempt 12",BRUTE_FORCE
+"Repeated SSH authentication failure same source IP",BRUTE_FORCE
+"Scanner touched ports 1-1024 in less than 5 seconds",PORT_SCAN
+"Possible reconnaissance: many SYN packets no completed handshake",PORT_SCAN
+"GET /download?path=..%2f..%2f..%2fetc%2fpasswd",PATH_TRAVERSAL
+"File read attempt outside web root using dot dot slash",PATH_TRAVERSAL
+"Suspicious process rundll32 executing from temp folder",MALWARE_INDICATOR
+"Endpoint contacted domain flagged as malware distribution",MALWARE_INDICATOR
+"Admin panel access denied due to missing role",AUTH_ERROR
+"Refresh token revoked authentication required",AUTH_ERROR
